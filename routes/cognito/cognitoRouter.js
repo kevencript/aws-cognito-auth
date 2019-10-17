@@ -11,8 +11,10 @@ const router = express.Router();
 
 // import dos módulos
 const signUpRoutes = require("./signup/signUpRouter");
+const loginRoutes = require("./login/loginRouter");
 
 // roteadores dos módulos
 router.use("/signup", signUpRoutes);
+router.use("/login", loginRoutes);
 
 module.exports = router;

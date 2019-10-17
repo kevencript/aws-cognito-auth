@@ -48,8 +48,7 @@ exports.realizarCadastro = async (req, res) => {
       return;
     }
     cognitoUser = result.user;
-    console.log(result);
-    console.log(result.user);
+
     console.log("user name is " + cognitoUser.getUsername());
   });
 };

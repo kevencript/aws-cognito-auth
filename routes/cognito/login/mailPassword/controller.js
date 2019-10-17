@@ -6,9 +6,9 @@
  *
  */
 
+const AmazonCognitoIdentity = require("amazon-cognito-identity-js");
+const { userPool } = require("../../../../config/AmazonCognitoIdentity");
 global.fetch = require("node-fetch");
-
-const { userPool } = require("../../../../config/AmazonCognitoIdentitys");
 
 // @route    GET /cognito/login * RENDERIZAR ARQUIVO EJS
 // @desc     Define a View para a rota de cadastro
@@ -18,26 +18,33 @@ exports.definirView = async (req, res) => {
 
 // @route    POST /cognito/login
 // @desc     Conexão com AWS e autenticação de usário
-exports.realizarCadastro = async (req, res) => {
+exports.realizarLogin = async (req, res) => {
+  const { email, password } = req.body;
+
   var authenticationData = {
-    Username: "username",
-    Password: "password"
+    Username: email,
+    Password: password
   };
   var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(
     authenticationData
   );
 
   var userData = {
-    Username: "username",
+    Username: email,
     Pool: userPool
   };
   var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+
   cognitoUser.authenticateUser(authenticationDetails, {
     onSuccess: function(result) {
       var accessToken = result.getAccessToken().getJwtToken();
 
       /* Use the idToken for Logins Map when Federating User Pools with identity pools or when passing through an Authorization Header to an API Gateway Authorizer*/
       var idToken = result.idToken.jwtToken;
+
+      res.json({
+        idToken
+      });
     },
 
     onFailure: function(err) {

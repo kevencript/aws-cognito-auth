@@ -8,5 +8,6 @@
 
 module.exports = {
   UserPoolId: "us-east-2_yiuM5xaKy",
-  ClientId: "it36q12nrr8h4uag3ha130k60"
+  ClientId: "it36q12nrr8h4uag3ha130k60",
+  jwtKey: "j79sha9d2#$@Xk;sajd"
 };

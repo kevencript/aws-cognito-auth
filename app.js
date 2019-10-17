@@ -2,6 +2,9 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const router = require("./routes/Router");
+const WindowMock = require("window-mock");
+
+global.navigator = () => null;
 
 const app = express();
 

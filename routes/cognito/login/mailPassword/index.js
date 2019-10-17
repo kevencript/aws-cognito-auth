@@ -1,7 +1,7 @@
 /**
- * routes/cognito/signup/mailPassword/index.js
+ * routes/cognito/login/mailPassword/index.js
  *
- * @description: Esse arquivo contém as rotas de autenticação no formato
+ * @description: Esse arquivo contém as rotas de login no formato
  * "Email e senha" / This file have all routes for auth using "e-mail and password".
  *
  */
@@ -20,6 +20,6 @@ router.get("/", controller.definirView);
 // @route    POST /cognito/signup
 // @desc     Conexão com AWS e criação de um novo usário
 // @acess    Public
-router.post("/", controller.realizarCadastro);
+router.post("/", controller.realizarLogin);
 
 module.exports = router;
