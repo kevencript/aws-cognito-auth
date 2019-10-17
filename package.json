@@ -1,0 +1,28 @@
+{
+  "name": "aws-cognito-auth",
+  "version": "1.0.0",
+  "description": "NodeJs API to authenticate users by Cognito",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevencript/aws-cognito-auth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevencript/aws-cognito-auth/issues"
+  },
+  "homepage": "https://github.com/kevencript/aws-cognito-auth#readme",
+  "dependencies": {
+    "amazon-cognito-identity-js": "^3.1.2",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^1.19.4",
+    "path": "^0.12.7"
+  }
+}
