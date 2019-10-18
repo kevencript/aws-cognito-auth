@@ -5,16 +5,10 @@
  * This file contain all the logic and interaction for auth "mail and password".
  *
  */
-global.fetch = require("node-fetch");
+
 const AmazonCognitoIdentity = require("amazon-cognito-identity-js");
-
-// retornando as chaves do arquivo de configuração
-const { UserPoolId, ClientId } = require("../../../../config/dev");
-
-const poolData = {
-  UserPoolId,
-  ClientId
-};
+const { userPool } = require("../../../../config/AmazonCognitoIdentity");
+global.fetch = require("node-fetch");
 
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
